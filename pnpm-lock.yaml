@@ -11,6 +11,9 @@ importers:
       '@ai-sdk/anthropic':
         specifier: ^0.0.39
         version: 0.0.39(zod@3.23.8)
+      '@ai-sdk/google':
+        specifier: ^0.0.35
+        version: 0.0.35(zod@3.23.8)
       '@ai-sdk/mistral':
         specifier: ^0.0.30
         version: 0.0.30(zod@3.23.8)
@@ -68,6 +71,9 @@ importers:
       remark-gfm:
         specifier: ^4.0.0
         version: 4.0.0
+      sonner:
+        specifier: ^1.5.0
+        version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.4.0
@@ -107,6 +113,12 @@ packages:
 
   '@ai-sdk/anthropic@0.0.39':
     resolution: {integrity: sha512-Ouku41O9ebyRi0EUW7pB8+lk4sI74SfJKydzK7FjynhNmCSvi42+U4WPlEjP64NluXUzpkYLvBa6BAd36VY4/g==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      zod: ^3.0.0
+
+  '@ai-sdk/google@0.0.35':
+    resolution: {integrity: sha512-OQRFFJ0Emuw8YEEbBnUEeHEwjyKJTg14ptTbB5h61fL3Stj66jE5o/70iU4d9dBeumyKZjeRVORIzlOsOnfokg==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.0.0
@@ -2191,6 +2203,12 @@ packages:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
 
+  sonner@1.5.0:
+    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
     engines: {node: '>=0.10.0'}
@@ -2502,6 +2520,12 @@ packages:
 snapshots:
 
   '@ai-sdk/anthropic@0.0.39(zod@3.23.8)':
+    dependencies:
+      '@ai-sdk/provider': 0.0.17
+      '@ai-sdk/provider-utils': 1.0.9(zod@3.23.8)
+      zod: 3.23.8
+
+  '@ai-sdk/google@0.0.35(zod@3.23.8)':
     dependencies:
       '@ai-sdk/provider': 0.0.17
       '@ai-sdk/provider-utils': 1.0.9(zod@3.23.8)
@@ -4967,6 +4991,11 @@ snapshots:
   signal-exit@4.1.0: {}
 
   slash@3.0.0: {}
+
+  sonner@1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   source-map-js@1.2.0: {}
 
