@@ -10,9 +10,10 @@ export interface Message {
 }
 
 export async function suggestQuestions(history: Message[]) {
+  "use server";
   const { object } = await generateObject({
-    model: google("models/gemini-1.5-flash-latest"),
-    temperature: 0.5,
+    model: google("models/gemini-1.5-pro-latest"),
+    temperature: 0,
     system: `You are a search engine query generator. You 'have' to create 3 questions for the search engine based on the message history which has been provided to you.
 The questions should be open-ended and should encourage further discussion while maintaining the whole context. Limit it to 5-10 words per question. 
 Always put the user input's context is some way so that the next search knows what to search for exactly.

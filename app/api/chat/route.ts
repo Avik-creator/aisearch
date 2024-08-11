@@ -3,6 +3,7 @@ import { mistral } from "@ai-sdk/mistral";
 import { z } from "zod";
 import { anthropic } from "@ai-sdk/anthropic";
 import { convertToCoreMessages, streamText, tool } from "ai";
+import { google } from "@ai-sdk/google";
 
 // Allowing API calls to extend beyond normal limit.
 export const maxDuration = 60;
@@ -15,21 +16,19 @@ const groq = createOpenAI({
 export async function POST(req: Request) {
   const { messages, model } = await req.json();
 
+  console.log("Messages from Routes: ", messages);
+
   let ansModel;
 
-  if (model == "llama-3.1-405b-reasoning") {
-    ansModel = groq("llama-3.1-405b-reasoning");
-  } else if (model == "mistral-large-latest") {
-    ansModel = mistral("mistral-large-latest");
-  } else if (model == "claude-3-5-sonnet-20240620") {
+  if (model == "claude-3-5-sonnet-20240620") {
     ansModel = anthropic("claude-3-5-sonnet-20240620");
   } else {
-    ansModel = model;
+    ansModel = google("models/gemini-1.5-pro-latest");
   }
 
   const result = await streamText({
     model: ansModel,
-    temperature: 0.5,
+    temperature: 0,
     messages: convertToCoreMessages(messages),
     system:
       "You are an AI web search engine that helps users find information on the internet." +
