@@ -546,7 +546,7 @@ export default function Home() {
           className="text-center"
         >
           <h1 className="text-3xl sm:text-4xl mb-4 sm:mb-8 text-primary font-serif">
-            MiniPerplx
+            AISearch
           </h1>
           {!hasSubmitted && (
             <h2 className="text-xl sm:text-2xl font-serif text-balance text-center mb-2">
